@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+  <title>Browser EventBus</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="http://cdn.sockjs.org/sockjs-0.3.4.min.js"></script>
+  <script src="vertxbus.js"></script>
+  <script src="debug.js"></script>
+
+</head>
+<body>
+<input type="text" name="message" id="message">	<input type="button" id="btnSend" value="Send">
+<div id="log">Log: </div>	
+
+ <script>
+  var eb = null;
+  var address = "browserbusAddress";
+  var url = "http://localhost:8000/eventbus";
+
+  function publish(address,  message) {
+    if (eb) {
+      eb.publish(address, message);
+	  console.log("published: " + message);
+    } else {
+		console.log("eb is " + eb);
+	}
+  } // publish
+
+  function subscribe() {
+    if (eb) {
+      eb.registerHandler(address, function(msg, replyTo) {
+		console.log("msg: " + msg);
+		$("#log").html($("#log").html()  + " " + msg);
+      });
+    } // if (eb)
+  } // subscribe
+
+  function closeConn() {
+    if (eb) {
+      eb.close();
+	  eb = null;
+    }
+  } // closeConn
+
+  function openConn() {
+    if (!eb) {
+      eb = new vertx.EventBus(url);
+
+      eb.onopen = function() {
+		console.log("Opened: " + address);
+		// and we will also subscribe
+		subscribe();
+      };
+
+      eb.onclose = function() {
+        console.log("Closed");
+        eb = null;
+      };
+    } // if (!eb)
+  } // openConn
+	
+$(document).ready(function() {
+	$("#btnSend").on("click", function(e) {
+		console.log("clicked");
+		// var message = String.fromCharCode(e.which);		
+		var message = $("#message").val();
+		publish(address,message);
+	});
+	
+	openConn();	
+
+});
+</script>
+</body>	
+</html>
