@@ -1,0 +1,4 @@
+{
+  "main": "sender.py",
+  "auto-redeploy" : true
+}

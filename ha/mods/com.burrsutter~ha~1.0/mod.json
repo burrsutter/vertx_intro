@@ -1,0 +1,4 @@
+{
+  "main": "bridge_server.js",
+  "auto-deploy" : true
+}

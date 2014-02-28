@@ -1,0 +1,4 @@
+{
+  "main": "Sender.groovy",
+  "auto-redeploy" : true
+}

@@ -1,0 +1,4 @@
+{
+  "main": "Sender.scala",
+  "auto-redeploy" : true
+}

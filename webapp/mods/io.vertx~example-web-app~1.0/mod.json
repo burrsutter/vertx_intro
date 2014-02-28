@@ -1,0 +1,4 @@
+{
+  "main": "app.js",
+  "deploys" : "io.vertx~mod-mongo-persistor~2.0.0-final,io.vertx~mod-auth-mgr~2.0.0-final,io.vertx~mod-web-server~2.0.0-final,io.vertx~lang-rhino~2.0.0-final"
+}

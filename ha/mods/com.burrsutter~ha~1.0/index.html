@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/sockjs-client/0.3.4/sockjs.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vertx/2.0.0/vertxbus.min.js"></script>  
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</head>	
+<body>
+<div id="status"></div> 
+<script>
+  var eb = new vertx.EventBus("http://localhost:8000/eventbus");
+  eb.onopen = function() {
+    console.log("news-feed listening");
+    eb.registerHandler("news-feed", function(msg) { 
+      var str = "<code>" + msg + "</code><br>";
+      $('#status').prepend(str);
+    })
+  }
+</script>
+</body>
+</html>
