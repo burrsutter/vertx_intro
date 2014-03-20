@@ -1,0 +1,4 @@
+{
+  "main": "receiver.js",
+  "auto-redeploy" : true
+}

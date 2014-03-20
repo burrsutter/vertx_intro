@@ -3,6 +3,8 @@ Tip: Drop your VPN!
 Run the overall server/bridge:
 vertx runmod com.burrsutter~ha~1.0 -ha
 
+http://localhost:8000
+
 Message publishers:
 vertx runmod com.burrsutter~senderjava~1.0 -ha
 
@@ -15,6 +17,9 @@ vertx runmod com.burrsutter~senderjavascript~1.0 -ha
 vertx runmod com.burrsutter~sendergroovy~1.0 -ha
 
 vertx runmod com.burrsutter~senderpython~1.0 -ha
+
+Another receiver:
+vertx runmod com.burrsutter~receiverjavascript~1.0 -ha
 
 ps aux | grep "javascript"
 
