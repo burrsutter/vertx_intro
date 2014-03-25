@@ -14,7 +14,9 @@ To see log output set the following in `conf/logging.properties` in the Vert.x i
 
     org.vertx.level=FINE
 
-Then point your browser at https://localhost:8080 and start shopping! (Note it's https not http!)
+Then point your browser at https://localhost:8000 and start shopping! (Note it's https not http!)
+
+Login is "tim" and "password"
 
 The example uses knockout.js at the client side to render the application. Vert.x is completely agnostic as to what
 client side toolkit you use - we have just chosen this for this example.
