@@ -11,8 +11,8 @@ public class Sender extends Verticle {
     vertx.setPeriodic(1000, new Handler<Long>() {
       @Override
       public void handle(Long timerID) {
-			  System.out.println("sending...");
-        vertx.eventBus().publish("news-feed", "more news from Java " + new java.util.Date());
+        System.out.println("sending from Java...");
+        vertx.eventBus().publish("news-feed", "Java News " + new java.util.Date());
       }
     });
   }

@@ -4,5 +4,5 @@ var vertx = require("vertx")
 
 vertx.setPeriodic(1000, function sendMessage() {
 	console.log("sending from JS...");
-  eb.publish('news-feed', 'some news from JavaScript');
+  eb.publish('news-feed', 'JavaScript News');
 })

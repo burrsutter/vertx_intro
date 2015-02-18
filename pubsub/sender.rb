@@ -2,5 +2,6 @@ require "vertx"
 include Vertx
 
 Vertx::set_periodic(1000) do
-  EventBus.publish('news-feed','Some news from Ruby')
+  puts "sending from Ruby..."
+  EventBus.publish('news-feed','Ruby News')
 end
